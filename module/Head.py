@@ -16,6 +16,10 @@ from Imagen.ImageShape  import ImageShape
 from Encode             import normalize, tokenize
 from typing             import Tuple, List, Text, Optional
 
+from P import preguntas
+
+n_pre = 1
+
 def getTrivia(shaper: ImageShape, ocr: OCR) -> Optional[Trivia]:
     # Nombre que no choca con nada
     file_pregunta = str(str(random.randint(1, 10001)) +
@@ -47,7 +51,7 @@ def getTrivia(shaper: ImageShape, ocr: OCR) -> Optional[Trivia]:
     pre_text = pre_text.replace('\n', ' ') + '?'
 
     # Opciones
-    opt_text = opt_text.replace('\n', '\t')
+    opt_text = opt_text.replace('\n','\t')
     opt_text = normalize(opt_text)
     # En caso de que ocr halla leido 'Pregunta N'
     for nu in range(1, 13):
@@ -90,18 +94,17 @@ def cleanTrivia(trivia: Trivia) -> Optional[Tuple[Text, List[Text], List[List[Te
 def procesar_imagen(shaper: ImageShape, ocr: OCR) -> Trivia:
     ######################################
     # Para hacer el proceso completo #####
-    trivia = getTrivia(shaper, ocr)
+    # trivia = getTrivia(shaper, ocr)
     ######################################
     # Evitando usar GoogleVison ##########
-    # global n_pre
-    # trivia = preguntas[n_pre]
-    # n_pre+=1
+    global n_pre
+    trivia = preguntas[n_pre]
+    n_pre+=1
     ######################################
     if trivia is None:
         return None
     pregunta, opciones = trivia
     print('Pregunta: ' + pregunta)
-    print(opciones)
     print('Opciones: \n\t1: ' +
           opciones[0] + '\n\t2: ' + opciones[1] + '\n\t3: ' + opciones[2])
     return trivia
@@ -118,6 +121,7 @@ def solve(motor: Engine, metodo: Method, ocr: OCR, shaper: ImageShape):
         result = metodo.solve((question, options), webdata, neg)
         if not (result is None):
             return result
+    #Buscar metodo probabilistico para responder
     n_opt = len(opciones)
     r = random.randint(0,n_opt-1)
     result = [0.0 for l in range(n_opt)]

@@ -40,3 +40,5 @@ class Browser:
         else:
             rs = html_to_text.handle(r)
             return rs
+
+# print(Browser().getText('https://es.wikipedia.org/wiki/Cris_Morena'))

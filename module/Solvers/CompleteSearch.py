@@ -8,6 +8,7 @@ sys.path.append(os.getcwd())
 from Method        import Method, cleanLink, zip, Score, Trivia, WebInfo
 from SimpleSearch  import SimpleSearch
 from PageScrap     import PageScrap
+from WordCount     import WordCount
 
 class CompleteSearch(Method):
     def solve(self, trivia: Trivia, data: WebInfo, negation: bool, lamb: float = 0.5) -> Score:

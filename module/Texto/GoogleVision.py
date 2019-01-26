@@ -8,7 +8,7 @@ from typing       import Text, Optional
 
 #Son necesarios los permisos de Google Cloud para que funcione
 
-class GoogleVision():
+class GoogleVision(OCR):
     def getText(self, path: Text) -> Optional[Text]:
         # Creo el cliente y abro el archivo
         client = vision.ImageAnnotatorClient()

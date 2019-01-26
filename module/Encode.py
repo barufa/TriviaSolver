@@ -54,7 +54,7 @@ def lemmatizeall(txt: Text) -> List[Text]:
     ltext = cleanText(txt)
     return [word_lemmatize(word) for word in ltext]
 
-# def lemmatize(txt: Text) -> List[Text]:
+# def lemmatize(txt: Text) -> List[Text]: #Tiene en cuenta las entidades
 # ##########Funcion Auxiliar#################################
 #     def lem(ents: List[Any],txt: Text,e=0,times=3) -> Text:
 #         if len(ents)<=e:
