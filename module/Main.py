@@ -16,8 +16,11 @@ from Imagen.InGame          import InGame
 from Search.Combine         import Combine
 from Texto.GoogleVision     import GoogleVision
 from Solvers.CompleteSearch import CompleteSearch
-from Solvers.WordCount      import WordCount
 
+ImageShape = InGame()
+Engine     = Combine()
+Method     = CompleteSearch()
+OCR        = GoogleVision()
 
 def saveanswer(score, respuestas, partial_time):
     nopt, pnt = getanswer(score)
@@ -50,14 +53,15 @@ def main(args):
         print("Resolviendo " + pregunta)
         partial_time = time()
         # Resuelvo la trivia
-        score = solve(Combine(), CompleteSearch(),
-                      GoogleVision(), InGame(pregunta))
+        ImageShape.set(pregunta)
+        score = solve(Engine, Method, OCR, ImageShape)
         respuestas = saveanswer(score, respuestas, (time()-partial_time))
     # Almaceno en un archivo las respuestas para comparar los resultados
     archivo = open("Respuestas.txt", "w")
     archivo.write(respuestas)
     tiempo_total = time() - tiempo_inicial
     print("Fin del programa con " + str(tiempo_total))
+    Engine.clear()
     return 0
 
 

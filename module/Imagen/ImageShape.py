@@ -15,9 +15,8 @@ def rgbdiff(x:Tripla, y:Tripla) -> Number:  # Auxiliar para findbox
 
 class ImageShape:
     image_path: Text = ""
-    def __init__(self, path: Text):
-        pass
-
+    def set(self,path: Text):
+        self.image_path = path
     def shapeImage(self, question_path: Text, option_path: Text) -> None:
         pass
 
