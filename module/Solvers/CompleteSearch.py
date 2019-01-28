@@ -5,10 +5,10 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-from Method        import Method, cleanLink, zip, Score, Trivia, WebInfo
-from SimpleSearch  import SimpleSearch
-from PageScrap     import PageScrap
-from WordCount     import WordCount
+from SimpleSearch        import SimpleSearch
+from PageScrap           import PageScrap
+from WikipediaSearch     import WikipediaSearch
+from Method              import Method, cleanLink, zip, Score, Trivia, WebInfo
 
 class CompleteSearch(Method):
     def solve(self, trivia: Trivia, data: WebInfo, negation: bool, lamb: float = 0.5) -> Score:
@@ -18,24 +18,28 @@ class CompleteSearch(Method):
         words_question, words_option = trivia
         l_opt = range(len(words_option))
         nulo = [0.0 for _ in l_opt]
+        #WikipediaSearch
+        score_wiki = WikipediaSearch().solve(trivia,data,negation)
+        if score_wiki is None:
+            score_wiki = nulo
+        # Si simple search encontro una respuesta clara, la retorno
+        if max(score_wiki) > 0.95:
+            return score_wiki
+        #SimpleSearch
         score_simple = SimpleSearch().solve(trivia, data, negation)
         if score_simple is None:
             score_simple = nulo
-
         # Si simple search encontro una respuesta clara, la retorno
-        print("CompleteSearch.py: SimpleSearch finalizo con ",score_simple)
-        for i in l_opt:
-            if score_simple[i] >= 0.8:
-                return score_simple
-
+        if max(score_simple) > 0.95:
+            return score_simple
+        #PageScrap
         score_page = PageScrap().solve(trivia, data, negation, 5)
         if score_page is None:
             score_page = nulo
-        print("CompleteSearch.py: PageScrap finalizo con ",score_page)
         #Calculo las respuestas teniendo en cuenta el parametro lamb
-        score    = [0.0 for _ in l_opt]
+        score = [0.0 for _ in l_opt]
         for i in l_opt:
-            score[i] = score_page[i] * (1.0 + lamb) + score_simple[i]
+            score[i] = score_page[i] * (1.0 + lamb) + score_simple[i] + score_wiki[i]
         total = float(sum(score))
         if score_page == nulo or score_simple == nulo:
             total *= 2

@@ -8,10 +8,10 @@ from nltk.tokenize import sent_tokenize
 from Internet      import Browser
 from typing        import Text, List
 
-class WordCount(Method):
-    def solve(self, trivia: Trivia, data: WebInfo, negation: bool,num_pages=5) -> Score:
+class WikipediaSearch(Method):
+    def solve(self, trivia: Trivia, data: WebInfo, negation: bool) -> Score:
         if data is None:
-            print('PageScrap.py: var "data" is None')
+            print('WikipediaSearch.py: var "data" is None')
             return None
         #Preparo la informacion
         words_question, words_option = trivia
@@ -20,37 +20,21 @@ class WordCount(Method):
 
         l_opt = range(len(words_option))
         score = [0.0 for _ in l_opt]
-
         link_list = cleanLink(data)
-        seen_link = set([])
-        current_links = link_list[0:num_pages]
+        current_links = [link for link in link_list if 'es.wikipedia' in link]
 
         # Cuento las apariciones dentro de las primeras paginas
-        for link in link_list[0:num_pages]:
+        for link in current_links:
             text = Browser().getText(link)
-            if not(text is None) and not(link in seen_link):
-                seen_link.add(link)
-                # print(link)
-                aux = [0.0 for _ in l_opt]
+            if not(text is None):
                 lsent = [lemmatizeall(text) for text in sent_tokenize(text)]
                 for i in l_opt:
                     for sentence in lsent:
-                        aux[i] += coef_sent(sentence,lwords_question,lwords_option[i])
-                total = float(sum(aux))
-                for i in l_opt:
-                    score[i]+=aux[i]/total
-            else:
-                try:#Si habia links repetidos, o alguno no sirve, agrego otro a la lista
-                    lnk = link_list[num_pages]
-                    num_pages +=1
-                    current_links.append(lnk)
-                except:
-                    pass
-
+                        score[i] += coef_sent(sentence,lwords_question,lwords_option[i])
         # Promedio los resultados
         total = float(sum(score))
         if total == 0.0:
-            print("WordCount.py: No se obtuvieron resultados")
+            print("WikipediaSearch.py: No se obtuvieron resultados")
             return None
         score = [float("%0.3f" % (x/total)) for x in score]
         # En caso de que la pregunta este negada
