@@ -6,7 +6,7 @@ preguntas=""
 
 echo "Preparando Ejecucion"
 #Corriendo Casos
-export GOOGLE_APPLICATION_CREDENTIALS="TriviaBot-Cloud.json"
+export GOOGLE_APPLICATION_CREDENTIALS="YourTriviaProject.json"
 for i in 1 2 3 4 5 6 7 8 9 10 11 12
 do
 	preguntas=$preguntas" $dir/questions/$juego/$i.png"

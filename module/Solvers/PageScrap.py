@@ -5,10 +5,10 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-from Encode import cleanText
-from Method import Method, cleanLink, zip, Score, Trivia, WebInfo
-from Internet import Browser
-from typing import List
+from Encode    import cleanText
+from Method    import Method, cleanLink, zip, Score, Trivia, WebInfo
+from Internet  import Browser
+from typing    import List
 
 class PageScrap(Method):
     def solve(self, trivia: Trivia, data: WebInfo, negation: bool, num_pages=5) -> Score:

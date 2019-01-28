@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import pickle
 from re         import sub as regex_remove
 from unidecode  import unidecode
 from typing     import Text
-import pickle
 
 def normalize(text: Text) -> Text:
     text = text.replace('¿', '')

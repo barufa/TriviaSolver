@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-from typing import Text, List, TypeVar, Tuple, Optional
+from typing        import Text, List, TypeVar, Tuple, Optional
 from Search.Engine import WebInfo
 
 Score = Optional[List[float]]

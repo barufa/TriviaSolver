@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing  import Tuple, Text, TypeVar, List, Optional
-from lxml    import etree as tree
-from re      import findall
-from unidecode import  unidecode
-from urllib.parse import unquote
+from typing        import Tuple, Text, TypeVar, List, Optional
+from lxml          import etree as tree
+from re            import findall
+from unidecode     import  unidecode
+from urllib.parse  import unquote
 
 WebInfo = Optional[List[Tuple[Text, Text, Text]]]
 Tvar = TypeVar('Tvar')
