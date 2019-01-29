@@ -96,7 +96,7 @@ def procesar_imagen(shaper: ImageShape, ocr: OCR) -> Trivia:
     # Para hacer el proceso completo #####
     # trivia = getTrivia(shaper, ocr)
     ######################################
-    # Evitando usar GoogleVison ##########
+    # Evitando usar OCR ##################
     global n_pre
     trivia = preguntas[n_pre]
     n_pre+=1

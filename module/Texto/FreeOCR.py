@@ -4,8 +4,8 @@
 import io
 import json
 import requests
-from OCR     import OCR
-from typing  import Text, Optional
+from OCR import OCR
+from typing import Text, Optional
 
 api_key = 'ada6be3b7588957'
 

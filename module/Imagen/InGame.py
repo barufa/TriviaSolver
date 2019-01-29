@@ -4,7 +4,13 @@ sys.path.append(os.getcwd())
 
 from ImageShape import ImageShape, rgbdiff, Image
 from typing import Text
+import cv2
 
+# def image_filter(file_name,filter):
+#     img = cv2.imread(file_name, 0)
+#     _,img = cv2.threshold(img,127,255,filter)
+#     cv2.imwrite(file_name,img)
+#     pass
 
 def findbox(imagen):  # No usar este metodo
     l1, l2, l3, l4 = (50, 150, 250, 350)
