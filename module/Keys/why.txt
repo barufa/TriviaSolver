@@ -1,0 +1,1 @@
+Esta carpeta contine las distintas 'keys' para usar los servicios de google, bluemix, freeocr, entre otros

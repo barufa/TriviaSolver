@@ -11,6 +11,7 @@ from Encode    import normalize
 from Engine    import Engine, reduceXpath, zip3, WebInfo, findurl
 from typing    import Text
 
+
 class Ask(Engine):
 	def __str__(self):
 		return "%s" % "Ask Search"

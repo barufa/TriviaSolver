@@ -52,7 +52,7 @@ def findbox(imagen):  # No usar este metodo
 
 
 class InGame(ImageShape):
-    image_path: Text = ""
+    image_path: Text
     # Simplifica la imagen separando la pregunta de las opciones y eliminando el fondo
     def shapeImage(self, question_path: Text, option_path: Text) -> None:
         resize_box = (495, 1, 875, 770)  # (izq,arr,der,aba) a partir de donde

@@ -7,6 +7,7 @@ from Encode          import normalize
 from time            import time
 from typing          import Text, Optional
 
+browsing_history = {}
 html_to_text = HTML2Text()
 html_to_text.ignore_links = True
 header = {'User-Agent': 'Mozilla/64.0 (X11; Linux x86_64) Chrome/71.0.3578',
@@ -16,16 +17,20 @@ header = {'User-Agent': 'Mozilla/64.0 (X11; Linux x86_64) Chrome/71.0.3578',
           'Accept-Language': 'en-US,en,es,es-AR;q=0.8',
           'Connection': 'keep-alive'}
 
+
 class Browser:
     def getHTML(self, url: Text) -> Optional[Text]:
         if url.count('.pdf') >= 1 or url.count('.doc') >= 1:
             print("Internet.py: El link recibio pertenece a un documento")
             return None
+        if url in browsing_history.keys():
+            return browsing_history[url]
         try:
             request = Request(url, headers = header)
             response = urlopen(request)
             html = response.read()
             r = html.decode("utf8")
+            browsing_history[url]=r
             return r
         except:
             print("Internet.py: Hubo un error al descargar el html " + str(url))
@@ -40,5 +45,9 @@ class Browser:
         else:
             rs = html_to_text.handle(r)
             return rs
+
+def clean_history():
+    browsing_history.clear()
+    pass
 
 # print(Browser().getText('https://es.wikipedia.org/wiki/Cris_Morena'))

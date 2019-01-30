@@ -4,11 +4,13 @@
 import io
 import json
 import requests
+from re import sub
 from OCR import OCR
 from typing import Text, Optional
 
-api_key = 'ada6be3b7588957'
-
+keys = open('Keys/freeocr.k','r')
+api_key = sub('\n*|\s*','',keys.read())
+keys.close()
 
 class FreeOCR(OCR):
     def getText(self, filename: Text, overlay=False, language='spa') -> Optional[Text]:

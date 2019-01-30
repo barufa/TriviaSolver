@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing        import Tuple, Text, TypeVar, List, Optional
+from Internet      import clean_history
 from lxml          import etree as tree
 from re            import findall
-from unidecode     import  unidecode
+from unidecode     import unidecode
 from urllib.parse  import unquote
+from typing        import Tuple, Text, TypeVar, List, Optional
 
 WebInfo = Optional[List[Tuple[Text, Text, Text]]]
 Tvar = TypeVar('Tvar')
@@ -19,7 +20,9 @@ class Engine:
 
     def search(self, query: Text) -> WebInfo:
         pass
-
+    def clear(self):
+        clean_history()
+        pass
 # Funcines Comunes entre los motores
 
 
