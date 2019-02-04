@@ -12,7 +12,7 @@ do
 	preguntas=$preguntas" $dir/questions/$juego/$i.png"
 done
 
-cd module
+cd code
 time python3 Main.py $preguntas
 rm -r Imagen/__pycache__
 rm -r Search/__pycache__
