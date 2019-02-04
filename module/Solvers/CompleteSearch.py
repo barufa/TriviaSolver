@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import sys
 import os
 sys.path.append(os.getcwd())
@@ -9,6 +6,7 @@ from SimpleSearch        import SimpleSearch
 from PageScrap           import PageScrap
 from WikipediaSearch     import WikipediaSearch
 from Method              import Method, cleanLink, zip, Score, Trivia, WebInfo
+from time                import time, sleep
 
 class CompleteSearch(Method):
     def solve(self, trivia: Trivia, data: WebInfo, negation: bool, lamb: float = 0.5) -> Score:
@@ -22,8 +20,10 @@ class CompleteSearch(Method):
         score_wiki = WikipediaSearch().solve(trivia,data,negation)
         if score_wiki is None:
             score_wiki = nulo
+
         # Si simple search encontro una respuesta clara, la retorno
         if max(score_wiki) > 0.95:
+            print("#########Rompimos por Wikipedia!!!!!!!#########")
             return score_wiki
         #SimpleSearch
         score_simple = SimpleSearch().solve(trivia, data, negation)
@@ -39,7 +39,7 @@ class CompleteSearch(Method):
         #Calculo las respuestas teniendo en cuenta el parametro lamb
         score = [0.0 for _ in l_opt]
         for i in l_opt:
-            score[i] = score_page[i] * (1.0 + lamb) + score_simple[i] + score_wiki[i]
+            score[i] = score_page[i] * (1.0 + lamb) + score_simple[i]
         total = float(sum(score))
         if score_page == nulo or score_simple == nulo:
             total *= 2

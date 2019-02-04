@@ -1,12 +1,20 @@
 import sys,os
 sys.path.append(os.getcwd())
 
-from Encode        import lemmatizeall
+from Encode        import word_lemmatize, lemmatizeall
 from Internet      import Browser
 from Method        import Method, cleanLink, Score, Trivia, WebInfo
 from nltk.tokenize import sent_tokenize
 from Internet      import Browser
 from typing        import Text, List
+from fuzzywuzzy    import fuzz
+from re            import sub
+
+# def split_paragr(text):
+#     ltext = [t for t in text.split('\n\n') if len(t)>3]
+#     lpar  = [sent_tokenize(par) for par in ltext if par!='']
+#     lpar  = [[sub(r'\[\w*|\d*\]','',s.replace('\n',' ')) for s in par] for par in lpar]
+#     return lpar
 
 class WikipediaSearch(Method):
     def solve(self, trivia: Trivia, data: WebInfo, negation: bool) -> Score:
@@ -22,6 +30,26 @@ class WikipediaSearch(Method):
         score = [0.0 for _ in l_opt]
         link_list = cleanLink(data)
         current_links = [link for link in link_list if 'es.wikipedia' in link]
+
+        #Con fuzzywuzzy, pero no se obtienen mejores resultados
+        # prop = []
+        # for i in l_opt:
+        #     lopt = lwords_option[i]
+        #     propI = ' '.join(lopt+lwords_question)
+        #     prop.append(propI)
+        #
+        # for link in current_links:
+        #     text = Browser().getText(link)
+        #     ptex = split_paragr(text)
+        #     for p in ptex:
+        #         for s in p:
+        #             s = ' '.join(lemmatizeall(s))
+        #             for i in l_opt:
+        #                 aux[i] = fuzz.token_sort_ratio(prop[i],s)
+        #             if max(aux) >= 90:
+        #                 for i in l_opt:
+        #                     score[i]+=aux[i]**3
+        # score = [p**3 for p in score]
 
         # Cuento las apariciones dentro de las primeras paginas
         for link in current_links:
