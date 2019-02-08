@@ -10,7 +10,6 @@ from unidecode           import unidecode
 from typing              import Tuple, List, Text, Optional, Any
 from spacy               import load
 
-
 spc = load('es_core_news_sm')
 lemmaDict = pickle.load(open("lemmaDict",'rb'))
 

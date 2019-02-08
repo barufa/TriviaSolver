@@ -7,8 +7,8 @@ from Method        import Method, cleanLink, Score, Trivia, WebInfo
 from nltk.tokenize import sent_tokenize
 from Internet      import Browser
 from typing        import Text, List
-from fuzzywuzzy    import fuzz
-from re            import sub
+# from re            import sub
+# from fuzzywuzzy    import fuzz
 
 # def split_paragr(text):
 #     ltext = [t for t in text.split('\n\n') if len(t)>3]
@@ -59,9 +59,11 @@ class WikipediaSearch(Method):
                 for i in l_opt:
                     for sentence in lsent:
                         score[i] += coef_sent(sentence,lwords_question,lwords_option[i])
+        score = [p**2 for p in score]
+
         # Promedio los resultados
         total = float(sum(score))
-        if total == 0.0:
+        if total == 0.0 or (total-max(score))==0:
             print("WikipediaSearch.py: No se obtuvieron resultados")
             return None
         score = [float("%0.3f" % (x/total)) for x in score]
@@ -91,4 +93,4 @@ def coef_sent(text: List[Text],preg: List[Text],resp: List[Text]) -> float:
     pcpreg = cpreg / float(len(preg))
     pcresp = cresp / float(len(resp))
 
-    return float((1.0 - pcrest) * ((pcpreg * pcresp)**3))
+    return float((1.0 - pcrest) * ((pcpreg * pcresp)))

@@ -1,6 +1,5 @@
 import io
 import pytesseract
-import cv2
 from OCR import OCR
 from typing import Text, Optional
 
@@ -12,6 +11,3 @@ class Tesseract(OCR):
         except:
             pass
         return None
-
-print(Tesseract().getText('/home/bruno/Escritorio/TriviaBot/questions/A/qweq.png'),'\n')
-print(Tesseract().getText('/home/bruno/Escritorio/TriviaBot/questions/A/qwep.png'))
