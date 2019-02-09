@@ -1,6 +1,6 @@
 # TriviaBot
 A question answering system developed in python focused on solving trivia questions that apply techniques of natural language processing and web scraping.
-This program is focused on trivia apps like HQ, CashShow, InGame and Preguntados.
+This program is focused on trivia apps like HQTrivia, CashShow, InGame and Preguntados.
 
 ## Getting Started
 In order to install the program, you need to:
