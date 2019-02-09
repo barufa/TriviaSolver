@@ -9,9 +9,12 @@ In order to install the program, you need to:
 * Test the program
 
 For this purpose there is a simple make file in the repository:
-* make dependences
-* make install
-* make test
-
+```
+$ make dependences
+$ make install
+$ make test
+```
 If everything ends correctly, the program is ready to be used.
+
+
 Work in progress...
