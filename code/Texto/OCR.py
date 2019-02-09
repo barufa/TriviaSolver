@@ -9,5 +9,3 @@ class OCR:
 
 #~ x = OCR()
 #~ x.getText('image_path')
-
-#Analisar si agrergar la IA de watson para analisar las cosas
