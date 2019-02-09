@@ -113,10 +113,11 @@ def config_console():
     parser.add_argument('-src', '--Source', type=str,
                         help='Funte desde la cual se obtendran las trivias')
     args = parser.parse_args()
-    print(args)
+
     set_game(conf, args)
     set_engine(conf, args)
     set_ocr(conf, args)
     set_solver(conf, args)
     set_src(conf, args)
+
     return conf

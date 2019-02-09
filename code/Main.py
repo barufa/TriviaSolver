@@ -3,10 +3,10 @@
 
 import sys
 import os
-sys.path.append(os.getcwd() + '/Search')
-sys.path.append(os.getcwd() + '/Solvers')
-sys.path.append(os.getcwd() + '/Texto')
-sys.path.append(os.getcwd() + '/Imagen')
+sys.path.append(os.getcwd() + 'Search')
+sys.path.append(os.getcwd() + 'Solvers')
+sys.path.append(os.getcwd() + 'Texto')
+sys.path.append(os.getcwd() + 'Imagen')
 
 from time                   import time, sleep
 from Head                   import solve
@@ -65,7 +65,6 @@ def main(args):
     Engine.clear()
     tiempo_total = time() - tiempo_inicial
     print("Fin del programa con " + str(tiempo_total))
-
     return 0
 
 

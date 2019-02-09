@@ -16,10 +16,6 @@ from Imagen.ImageShape  import ImageShape
 from Encode             import normalize, tokenize
 from typing             import Tuple, List, Text, Optional
 
-from P import preguntas
-
-n_pre = 1
-
 def getTrivia(shaper: ImageShape, ocr: OCR) -> Optional[Trivia]:
     # Nombre que no choca con nada
     file_pregunta = str(str(random.randint(1, 10001)) +
@@ -92,15 +88,9 @@ def cleanTrivia(trivia: Trivia) -> Optional[Tuple[Text, List[Text], List[List[Te
 
 
 def procesar_imagen(shaper: ImageShape, ocr: OCR) -> Trivia:
-    ######################################
-    # Para hacer el proceso completo #####
-    # trivia = getTrivia(shaper, ocr)
-    ######################################
-    # Evitando usar OCR ##################
-    global n_pre
-    trivia = preguntas[n_pre]
-    n_pre+=1
-    ######################################
+
+    trivia = getTrivia(shaper, ocr)
+
     if trivia is None:
         return None
     pregunta, opciones = trivia
