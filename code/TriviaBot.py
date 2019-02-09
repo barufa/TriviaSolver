@@ -70,14 +70,3 @@ def main(args):
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
-
-##Posibles problemas y extensiones:
-# Analizar fallos en las preguntas (RA,...,RD)
-# Tipos de pregunta: Clasificar las preguntas para utilizar distintos metodos y mejorar efectividad
-# Utilizar AI de google(actions on Google) o IBM(bluemix)
-# Tiempo de ejecucion y multithreading(Es posible lanzar un timeout)
-# Agregar idiomas
-# Incluir TriviaDB(opentdb.com) para mejorar efectividad
-# Agregar opcion -test
-# Argegar deteccion de bordes a ImageShape
-# Investigar interfaz Android
