@@ -88,7 +88,7 @@ def cleanTrivia(trivia: Trivia) -> Optional[Tuple[Text, List[Text], List[List[Te
     token_option = [list(set(l)) for l in token_option]
 
     query = ' '.join(token_question)
-    return (query, token_question, token_option, ' no ' in pregunta)
+    return (query, token_question, token_option, ' no ' in pregunta or ' not ' in pregunta)
 
 
 def procesar_imagen(shaper: ImageShape, ocr: OCR) -> Trivia:
