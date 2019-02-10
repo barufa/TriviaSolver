@@ -3,15 +3,12 @@
 
 import pickle
 from nltk.tokenize       import RegexpTokenizer, word_tokenize
-from nltk.corpus         import stopwords
+from nltk.corpus         import stopwords as stopw
 from nltk.stem.snowball  import SpanishStemmer
 from re                  import sub as regex_remove
 from unidecode           import unidecode
 from typing              import Tuple, List, Text, Optional, Any
-from spacy               import load
 
-spc = load('es_core_news_sm')
-lemmaDict = pickle.load(open("lemmaDict",'rb'))
 
 def normalize(text: Text) -> Text:
     text = text.replace('¿', '')
@@ -22,9 +19,24 @@ def normalize(text: Text) -> Text:
     text = regex_remove(r'[^\w\s]','',text)
     return text
 
-stopwords = set([normalize(x) for x in stopwords.words("spanish")])
-stopwords.remove('estados')
-stopwords.add('siguientes')
+lemmaDict = {}
+stopwords = {}
+# lemmaDict = pickle.load(open("es_lemmaDict",'rb'))
+# stopwords = set([normalize(x) for x in stopwords.words("spanish")])
+# stopwords.remove('estados')
+# stopwords.add('siguientes')
+
+def idioma(lang: Text):
+    global lemmaDict
+    global stopwords
+    if lang=="spa":
+        lemmaDict = pickle.load(open("es_lemmaDict",'rb'))
+        stopwords = set([normalize(x) for x in stopw.words("spanish")])
+        stopwords.remove('estados')
+        stopwords.add('siguientes')
+    else:
+        lemmaDict = pickle.load(open("en_lemmaDict",'rb'))
+        stopwords = set([normalize(x) for x in stopw.words("english")])
 
 def tokenize(sentence: Text)-> Text:
     sentence = regex_remove(r'\[\w*\]','',sentence)

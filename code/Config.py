@@ -6,7 +6,9 @@ sys.path.append(os.getcwd() + '/Texto')
 sys.path.append(os.getcwd() + '/Imagen')
 
 import argparse
+import Encode
 from typing import Tuple, List, Text, Optional
+
 
 def set_game(config, args):
     game = args.Game.lower()
@@ -102,6 +104,16 @@ def set_src(config, args):
     pass
 
 
+def set_lang(config, args):
+    lang = args.Language.lower()
+    if(lang == 'spa' or lang == 'eng'):
+        Encode.idioma(lang)
+    else:
+        print('ERROR: Se debe especificar un idioma')
+        exit(6)
+    pass
+
+
 def config_console():
     conf = {}
     parser = argparse.ArgumentParser()
@@ -115,6 +127,8 @@ def config_console():
                         help='Motor de reconocimiento de caracteres a utilizar. Los valores posibles son:\n* FreeOCR\n* Tesseract\n* GoogleVision', default='GoogleVision')
     parser.add_argument('-src', '--Source', type=str,
                         help='Funte desde la cual se obtendran las trivias')
+    parser.add_argument('-lang', '--Language', type=str,
+                        help='Idioma en el cual desea correr el programa. Los valores posibles son:\n* Spa\tEspañol\n* Eng\tIngles',default='spa')
     args = parser.parse_args()
 
     set_game(conf, args)
@@ -122,5 +136,6 @@ def config_console():
     set_ocr(conf, args)
     set_solver(conf, args)
     set_src(conf, args)
+    set_lang(conf, args)
 
     return conf

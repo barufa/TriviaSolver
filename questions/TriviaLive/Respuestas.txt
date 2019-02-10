@@ -1,12 +1,12 @@
 C
 A
 B
-A
 D
 A
 A
-A
+C
+C
 D
-B
+C
 C
 C
