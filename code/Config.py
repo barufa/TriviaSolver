@@ -19,6 +19,9 @@ def set_game(config, args):
     elif(game == 'cashshow'):
         from Imagen.CashShow import CashShow
         config['Game'] = CashShow()
+    elif(game == 'trivialive'):
+        from Imagen.TriviaLive import TriviaLive
+        config['Game'] = TriviaLive()
     else:
         print('ERROR: La interfaz de juego seleccionado no se corresponde con ninguna de las disponibles')
         exit(1)

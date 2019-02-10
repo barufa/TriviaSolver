@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import io
+import io,os
 from google.cloud import vision
 from OCR          import OCR
 from typing       import Text, Optional
+import subprocess
 
 #Son necesarios los permisos de Google Cloud para que funcione
-
 class GoogleVision(OCR):
     def getText(self, path: Text) -> Optional[Text]:
         # Creo el cliente y abro el archivo

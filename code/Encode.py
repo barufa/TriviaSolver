@@ -24,6 +24,7 @@ def normalize(text: Text) -> Text:
 
 stopwords = set([normalize(x) for x in stopwords.words("spanish")])
 stopwords.remove('estados')
+stopwords.add('siguientes')
 
 def tokenize(sentence: Text)-> Text:
     sentence = regex_remove(r'\[\w*\]','',sentence)

@@ -81,6 +81,9 @@ def cleanTrivia(trivia: Trivia) -> Optional[Tuple[Text, List[Text], List[List[Te
     words_option = [normalize(x) for x in opciones]
     words_option = [tokenize(l) for l in words_option]
     token_option = [l.split(' ') for l in words_option]
+    for i in range(len(token_option)):
+        if token_option[i][0] in ['1','2','3','4','5','6','7','8','9','0']:
+            token_option[i] = token_option[i][1:]
     # Modificar en caso de realizar analisis mas complejos
     token_option = [list(set(l)) for l in token_option]
 

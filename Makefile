@@ -2,8 +2,9 @@ all: dependences install test clean
 		
 
 dependences:
-	sudo pip3 install -y pipenv
-	sudo apt  install -y tesseract-ocr
+	sudo apt-get update
+	sudo pip3 install pipenv
+	sudo apt -y install tesseract-ocr
 
 install:
 	pipenv install --dev
@@ -16,3 +17,5 @@ test:
 clean:
 	@echo "Eliminando archivos de ejecucion"
 	@find . -name '__pycache__' -exec rm -rv {} +
+	@find . -name '*runtimecreationtoremove*' -delete
+
