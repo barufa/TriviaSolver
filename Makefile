@@ -11,8 +11,7 @@ install:
 	pipenv run python -m spacy download es_core_news_sm
 	
 test:
-	pipenv shell
-	./run.sh
+	pipenv run ./run.sh
 
 clean:
 	@echo "Eliminando archivos de ejecucion"
