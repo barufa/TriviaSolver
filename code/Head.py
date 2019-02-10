@@ -49,6 +49,7 @@ def getTrivia(shaper: ImageShape, ocr: OCR) -> Optional[Trivia]:
     # Opciones
     opt_text = opt_text.replace('\n','\t')
     opt_text = normalize(opt_text)
+
     # En caso de que ocr halla leido 'Pregunta N'
     for nu in range(1, 13):
         prg = 'pregunta ' + str(nu)
@@ -95,8 +96,11 @@ def procesar_imagen(shaper: ImageShape, ocr: OCR) -> Trivia:
         return None
     pregunta, opciones = trivia
     print('Pregunta: ' + pregunta)
-    print('Opciones: \n\t1: ' +
-          opciones[0] + '\n\t2: ' + opciones[1] + '\n\t3: ' + opciones[2])
+    str_opt = 'Opciones: '
+    for i in range(len(opciones)):
+        str_opt += '\n\t' + str(i+1) + ': ' + opciones[i]
+    print(str_opt)
+
     return trivia
 
 def solve(motor: Engine, metodo: Method, ocr: OCR, shaper: ImageShape):

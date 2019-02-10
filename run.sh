@@ -14,5 +14,5 @@ do
 done
 
 cd code
-time python3 TriviaBot.py -src=$preguntas -o=Tesseract
+time python3 TriviaBot.py -src=$preguntas -g=Ingame -o=Tesseract
 echo "Fin de la Ejecucion"
