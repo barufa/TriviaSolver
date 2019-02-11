@@ -3,7 +3,7 @@
 A question answering system developed in python focused on solving trivia questions that apply techniques of natural language processing and web scraping.
 This program is focused on the app InGame, but it also works with other trivia apps such as HQTrivia, CashShow and TriviaLive(Preguntados).
 
-Its accuracy for the InGame application is 86%, which means that it gets just over 10 correct answers every 12 questions.
+Its **accuracy for the InGame application is 86%**, which means that it gets just over 10 correct answers every 12 questions.
 
 ## Getting Started
 
