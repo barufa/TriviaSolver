@@ -118,17 +118,17 @@ def config_console():
     conf = {}
     parser = argparse.ArgumentParser()
     parser.add_argument('-g', '--Game',  type=str,
-                        help='Interfaz del juego a analizar. Los valores posibles son:\n* InGame\n* HQTrivia\n* CashShow', default='Ingame')
+                        help='Interfaz del juego a analizar. Los valores posibles son: InGame,HQTrivia,CashShow,TriviaLive', default='Ingame')
     parser.add_argument('-s', '--Search', type=str,
-                        help='Motor de busqueda que utilizara el programa. Los valores posibles son:\n* Google\n* Ask\n* Bing\n* Combine\n* Metacrawle', default='Google')
+                        help='Motor de busqueda que utilizara el programa. Los valores posibles son: Google,Ask,Bing,Combine,Metacrawle', default='Google')
     parser.add_argument('-m', '--Method', type=str,
-                        help='Metodo principal utilizado para resolver las trivias. Los metodos disponibles son:\n* SimpleSearch\n* PageScrape\n* WikipediaSearch\n* CompleteSearch', default='CompleteSearch')
+                        help='Metodo principal utilizado para resolver las trivias. Los metodos disponibles son: SimpleSearch,PageScrape,WikipediaSearch,CompleteSearch', default='CompleteSearch')
     parser.add_argument('-o', '--OCR', type=str,
-                        help='Motor de reconocimiento de caracteres a utilizar. Los valores posibles son:\n* FreeOCR\n* Tesseract\n* GoogleVision', default='GoogleVision')
+                        help='Motor de reconocimiento de caracteres a utilizar. Los valores posibles son: FreeOCR,Tesseract,GoogleVision', default='GoogleVision')
     parser.add_argument('-src', '--Source', type=str,
                         help='Funte desde la cual se obtendran las trivias')
     parser.add_argument('-lang', '--Language', type=str,
-                        help='Idioma en el cual desea correr el programa. Los valores posibles son:\n* Spa\tEspañol\n* Eng\tIngles',default='spa')
+                        help='Idioma en el cual desea correr el programa. Los valores posibles son: Spa(Español),Eng(Ingles)',default='spa')
     args = parser.parse_args()
 
     set_game(conf, args)

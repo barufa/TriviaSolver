@@ -23,7 +23,6 @@ class CompleteSearch(Method):
 
         # Si simple search encontro una respuesta clara, la retorno
         if max(score_wiki) > 0.95:
-            print("#########Rompimos por Wikipedia!!!!!!!#########")
             return score_wiki
         #SimpleSearch
         score_simple = SimpleSearch().solve(trivia, data, negation)
