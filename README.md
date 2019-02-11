@@ -25,6 +25,9 @@ $ make clean
 ```
 If everything ends correctly, the program is ready to be used.
 
+It is highly recommended to use Google Cloud services to avoid character recognition errors.
+For this it is necessary to create an account in Google Cloud and register in the services of Google Cloud Vision.
+
 ## How it works:
 
 This project uses python 3.6. In particular the packages/libraries used are...
@@ -55,8 +58,9 @@ Where options are:
 * --OCR: Character recognition engine to be used. The possible values are: FreeOCR, Tesseract, GoogleVision.
 * --Source: Source from which the trivia will be obtained
 * --Language: Language in which you want to run the program. The possible values are: Spa (Spanish), Eng (English).
+
 An example:
-python3 TriviaBot.py --Source=../questions/InGame/1.png+../questions/InGame/2.png --Game=InGame --OCR=Tesseract
+>python3 TriviaBot.py --Source=../questions/InGame/1.png+../questions/InGame/2.png --Game=InGame --OCR=Tesseract
 
 ## Screenshots
 
