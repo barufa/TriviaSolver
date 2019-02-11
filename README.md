@@ -1,8 +1,10 @@
 # TriviaBot
+
 A question answering system developed in python focused on solving trivia questions that apply techniques of natural language processing and web scraping.
 This program is focused on trivia apps like HQTrivia, CashShow, InGame and Preguntados.
 
 ## Getting Started
+
 First of all, you have to donwload this repository and execute:
 ```
 $ git clone https://github.com/barufa/TriviaBot.git
@@ -22,6 +24,7 @@ $ make clean
 If everything ends correctly, the program is ready to be used.
 
 ##How it works:
+
 This project uses python 3.6. In particular the packages/libraries used are...
 * nltk
 * regex
@@ -36,6 +39,7 @@ This project uses python 3.6. In particular the packages/libraries used are...
 To make the handling of dependencies easier, we use pipenv.
 
 ##Usage
+
 Once the program is installed, it can be executed through the following commands:
 ```
 $ pipenv shell
@@ -53,10 +57,11 @@ An example:
 python3 TriviaBot.py --Source=../questions/InGame/1.png+../questions/InGame/2.png --Game=InGame --OCR=Tesseract
 
 ##Screenshots
+
 ![](/questions/HQTrivia/HQTrivia.gif)
-![](InGame.gif)
-![](CashShow.gif)
-![](TriviaLive.gif)
+![](/questions/InGame/InGame.gif)
+![](/questions/CashShow/CashShow.gif)
+![](/questions/TriviaLive/TriviaLive.gif)
 
 
 
