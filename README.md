@@ -1,7 +1,9 @@
 # TriviaBot
 
 A question answering system developed in python focused on solving trivia questions that apply techniques of natural language processing and web scraping.
-This program is focused on trivia apps like HQTrivia, CashShow, InGame and Preguntados.
+This program is focused on the app InGame, but it also works with other trivia apps such as HQTrivia, CashShow and TriviaLive(Preguntados).
+
+Its accuracy for the InGame application is 86%, which means that it gets just over 10 correct answers every 12 questions.
 
 ## Getting Started
 
@@ -23,7 +25,7 @@ $ make clean
 ```
 If everything ends correctly, the program is ready to be used.
 
-##How it works:
+## How it works:
 
 This project uses python 3.6. In particular the packages/libraries used are...
 * nltk
@@ -38,7 +40,7 @@ This project uses python 3.6. In particular the packages/libraries used are...
 * opencv-python
 To make the handling of dependencies easier, we use pipenv.
 
-##Usage
+## Usage
 
 Once the program is installed, it can be executed through the following commands:
 ```
@@ -56,13 +58,9 @@ Where options are:
 An example:
 python3 TriviaBot.py --Source=../questions/InGame/1.png+../questions/InGame/2.png --Game=InGame --OCR=Tesseract
 
-##Screenshots
+## Screenshots
 
 ![](/questions/HQTrivia/HQTrivia.gif)
 ![](/questions/InGame/InGame.gif)
 ![](/questions/CashShow/CashShow.gif)
 ![](/questions/TriviaLive/TriviaLive.gif)
-
-
-
-Work in progress...
