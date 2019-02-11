@@ -5,8 +5,8 @@ This program is focused on trivia apps like HQTrivia, CashShow, InGame and Pregu
 ## Getting Started
 First of all, you have to donwload this repository and execute:
 ```
-$git clone https://github.com/barufa/TriviaBot.git
-$cd TriviaBot
+$ git clone https://github.com/barufa/TriviaBot.git
+$ cd TriviaBot
 ```
 In order to install the program, you need to:
 * Install pipenv and tesseract
@@ -38,8 +38,8 @@ To make the handling of dependencies easier, we use pipenv.
 ##Usage
 Once the program is installed, it can be executed through the following commands:
 ```
-$pipenv shell
-$python3 TriviaBot.py [OPTIONS]
+$ pipenv shell
+$ python3 TriviaBot.py [OPTIONS]
 ```
 Where options are:
 * --help: Show this help message and exit
@@ -53,7 +53,7 @@ An example:
 python3 TriviaBot.py --Source=../questions/InGame/1.png+../questions/InGame/2.png --Game=InGame --OCR=Tesseract
 
 ##Screenshots
-![](HQTrivia.gif)
+![](/questions/HQTrivia/HQTrivia.gif)
 ![](InGame.gif)
 ![](CashShow.gif)
 ![](TriviaLive.gif)
