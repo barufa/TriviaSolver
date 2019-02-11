@@ -16,6 +16,7 @@ In order to install the program, you need to:
 * Install pipenv and tesseract
 * Install all program dependences and models of spacy
 * Test the program
+
 For this purpose there is a simple makefile in the repository:
 ```
 $ make dependences
@@ -25,7 +26,7 @@ $ make clean
 ```
 If everything ends correctly, the program is ready to be used.
 
-It is highly recommended to use Google Cloud services to avoid character recognition errors.
+It is highly recommended to use Google Services to avoid character recognition errors.
 For this it is necessary to create an account in Google Cloud and register in the services of Google Cloud Vision.
 
 ## How it works:
