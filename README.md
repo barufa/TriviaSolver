@@ -7,7 +7,7 @@ Its **accuracy for the InGame application is 86%**, which means that it gets jus
 
 ## Getting Started
 
-First of all, you have to donwload this repository and execute:
+First of all, you have to download this repository and execute:
 ```
 $ git clone https://github.com/barufa/TriviaBot.git
 $ cd TriviaBot
