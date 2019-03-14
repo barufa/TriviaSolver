@@ -50,6 +50,7 @@ To make the handling of dependencies easier, we use pipenv.
 Once the program is installed, it can be executed through the following commands:
 ```
 $ pipenv shell
+$ cd code/
 $ python3 TriviaBot.py [OPTIONS]
 ```
 Where options are:
