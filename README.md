@@ -42,6 +42,7 @@ This project uses python 3.6. In particular the packages/libraries used are...
 * google-cloud
 * pytesseract
 * opencv-python
+
 To make the handling of dependencies easier, we use pipenv.
 
 ## Usage
