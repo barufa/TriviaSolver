@@ -28,7 +28,7 @@ If everything ends correctly, the program is ready to be used.
 
 It is **highly recommended to use Google Cloud** to avoid character recognition errors.
 For this it is necessary to create an account in Google Cloud and register in the services of Google Cloud Vision.
-For this you can visit this [link](https://cloud.google.com/vision/docs/quickstart-client-libraries).
+You can get more information [here](https://cloud.google.com/vision/docs/quickstart-client-libraries).
 
 ## How it works:
 
