@@ -2,9 +2,10 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-from ImageShape import ImageShape, rgbdiff, Image
+from ImageShape import ImageShape, rgbdiff, Image, ImageOps
 from typing import Text
-import cv2
+
+#import cv2
 
 # def image_filter(file_name,filter):
 #     img = cv2.imread(file_name, 0)
@@ -63,5 +64,6 @@ class InGame(ImageShape):
         opciones_box = (0, height - 270, lenth, height)
         pregunta = img.crop(pregunta_box)
         opciones = img.crop(opciones_box)
+        pregunta = ImageOps.invert(pregunta)
         pregunta.save(question_path)
         opciones.save(option_path)

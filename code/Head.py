@@ -18,11 +18,10 @@ from typing             import Tuple, List, Text, Optional
 
 def getTrivia(shaper: ImageShape, ocr: OCR) -> Optional[Trivia]:
     # Nombre que no choca con nada
-    file_pregunta = str(str(random.randint(1, 10001)) +
+    file_pregunta = str(str(os.getcwd()) + '/' + str(random.randint(1, 10001)) +
                         'runtimecreationtoremove_question_file.png')
-    file_opciones = str(str(random.randint(1, 10001)) +
+    file_opciones = str(str(os.getcwd()) + '/' + str(random.randint(1, 10001)) +
                         'runtimecreationtoremove_options_file.png')
-
     # Corto la imagen
     shaper.shapeImage(file_pregunta, file_opciones)
 

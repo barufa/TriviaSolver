@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from PIL     import Image
+from PIL     import Image, ImageOps
 from typing  import Text
 from typing import Union, Tuple
 

@@ -10,7 +10,7 @@ Its **accuracy for the InGame application is 86%**, which means that it gets jus
 First of all, you have to download this repository and execute:
 ```
 $ git clone https://github.com/barufa/TriviaBot.git
-$ cd TriviaBot
+$ cd TriviaSolver
 ```
 In order to install the program, you need to:
 * Install pipenv and tesseract

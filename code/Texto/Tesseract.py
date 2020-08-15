@@ -9,5 +9,5 @@ class Tesseract(OCR):
             txt = pytesseract.image_to_string(path, lang=language)
             return txt
         except:
-            pass
+            print("Tesseract fails")
         return None
